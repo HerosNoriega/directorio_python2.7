@@ -49,6 +49,8 @@ class ContactBook:
                 self._contacts[idx].email = email
                 self._save()
                 break
+            else:
+                self._not_found()
 
     def _save(self):
         with open('contacts.csv', 'w') as f:
@@ -74,12 +76,18 @@ def run():
 
     contact_book = ContactBook()
 
-    with open('contacts.csv', 'r') as f:
-        reader = csv.reader(f)
-        for idx, row in enumerate(reader):
-            if idx == 0:
-                continue
-            contact_book.add(row[0], row[1], row[2])
+    try:
+        with open('contacts.csv', 'r') as f:
+            reader = csv.reader(f)
+            for idx, row in enumerate(reader):
+                if idx == 0:
+                    continue
+                contact_book.add(row[0], row[1], row[2])
+
+    except IOError:
+        with open('contacts.csv', 'w+') as f:
+            writer = csv.writer(f)
+            writer.writerow( ('name', 'phone', 'email') )
 
 
     while True:
