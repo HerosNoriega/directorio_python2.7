@@ -10,7 +10,6 @@ contact information to anyone around the world.
 Project originaly made in Spanish.
 
 que deceas hacer?
-
             [a]ñadir contacto
             [ac]tualizar contacto
             [b]uscar contacto
@@ -21,7 +20,6 @@ que deceas hacer?
 English Version 
 
 How can I help?
-
             [a]dd contact
             [u]pdate contact
             [s]earch contact
